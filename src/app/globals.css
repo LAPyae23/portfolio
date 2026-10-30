@@ -1,26 +1,116 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #050507;
+  --foreground: #f4f4f5;
+  --muted: #a1a1aa;
+  --neon: #ff4d9d;
+  --neon-soft: #f9a8d4;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-neon: var(--neon);
+  --color-neon-soft: var(--neon-soft);
   --font-sans: var(--font-geist-sans);
+  --font-display: var(--font-syne);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-syne), var(--font-geist-sans), system-ui, sans-serif;
+}
+
+::selection {
+  background: rgba(255, 77, 157, 0.35);
+  color: #fff;
+}
+
+.glass {
+  background: rgba(9, 9, 11, 0.55);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-strong {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.06) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 182, 213, 0.16);
+}
+
+.pink-glow {
+  box-shadow:
+    0 0 0 1px rgba(255, 77, 157, 0.28),
+    0 0 28px rgba(255, 77, 157, 0.35),
+    0 10px 40px rgba(255, 77, 157, 0.18);
+}
+
+.pink-glow-hover {
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.pink-glow-hover:hover {
+  transform: scale(1.03);
+  border-color: rgba(255, 77, 157, 0.45);
+  box-shadow:
+    0 0 0 1px rgba(255, 77, 157, 0.35),
+    0 0 42px rgba(255, 77, 157, 0.28),
+    0 18px 50px rgba(0, 0, 0, 0.35);
+}
+
+.grid-fade {
+  background-image:
+    linear-gradient(rgba(255, 77, 157, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 77, 157, 0.045) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.caret {
+  animation: blink 1s step-end infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .caret,
+  .pink-glow-hover {
+    animation: none;
+    transition: none;
+  }
 }
