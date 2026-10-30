@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowUpRight, FileText, Sparkles } from "lucide-react";
-import { GithubIcon } from "@/components/icons";
+import { GithubIcon, LinkedinIcon } from "@/components/icons";
 import { Typewriter } from "@/components/Typewriter";
 import { profile, typingPhrases } from "@/lib/data";
 
@@ -74,6 +74,17 @@ export function Hero() {
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </motion.a>
             <motion.a
+              href={profile.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.98 }}
+              className="pink-glow-hover inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-7 py-3.5 text-sm font-medium text-zinc-100 backdrop-blur-xl"
+            >
+              <LinkedinIcon className="h-4 w-4 text-neon" />
+              LinkedIn
+            </motion.a>
+            <motion.a
               href={profile.resumeUrl}
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.98 }}
@@ -101,16 +112,16 @@ export function Hero() {
               <Line label="identity" value="Khin La Pyae Htun" />
               <Line label="alias" value="LAPyae23" />
               <Line label="focus" value="React · Spring Boot" />
-              <Line label="signature" value="Celestix ticket systems" />
+              <Line label="signature" value="FoodDash delivery platform" />
               <Line label="stack" value="TS / Java / Tailwind" />
             </div>
             <div className="mt-8 rounded-2xl border border-pink-400/20 bg-pink-500/10 p-4">
               <p className="text-xs uppercase tracking-[0.22em] text-neon">
                 featured system
               </p>
-              <p className="mt-2 font-display text-2xl text-zinc-50">Celestix</p>
+              <p className="mt-2 font-display text-2xl text-zinc-50">FoodDash</p>
               <p className="mt-1 text-sm text-zinc-400">
-                Movie ticket management — frontend, APIs, and the original Java spark.
+                Food delivery for Yangon — customer, restaurant, rider, and admin portals on one platform.
               </p>
             </div>
           </div>

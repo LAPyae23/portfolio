@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { GithubIcon } from "@/components/icons";
+import { GithubIcon, LinkedinIcon } from "@/components/icons";
 import { navLinks, profile } from "@/lib/data";
 
 export function Navbar() {
@@ -53,6 +53,15 @@ export function Navbar() {
             aria-label="GitHub"
           >
             <GithubIcon className="h-4 w-4" />
+          </a>
+          <a
+            href={profile.linkedin}
+            target="_blank"
+            rel="noreferrer"
+            className="pink-glow-hover inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-zinc-200"
+            aria-label="LinkedIn"
+          >
+            <LinkedinIcon className="h-4 w-4" />
           </a>
           <button
             type="button"
