@@ -2,6 +2,7 @@ import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { GithubIcon } from "@/components/icons";
 import { FadeIn } from "@/components/FadeIn";
+import { ProjectGallery } from "@/components/ProjectGallery";
 import { SectionHeading } from "@/components/SectionHeading";
 import { projects, type Project, type ProjectVisual } from "@/lib/data";
 
@@ -103,31 +104,41 @@ const coverLabels: Record<ProjectVisual, string> = {
 };
 
 function ProjectCover({ project }: { project: Project }) {
-  const { image, visual, featured } = project;
+  const { image, visual, featured, gallery } = project;
   const height = featured ? "h-56 sm:h-72" : "h-56";
 
   if (image) {
+    const cover = (
+      <Image
+        src={image.src}
+        alt={image.alt}
+        fill
+        sizes={
+          featured
+            ? "(min-width: 1152px) 750px, (min-width: 1024px) 66vw, 100vw"
+            : "(min-width: 1152px) 370px, (min-width: 1024px) 33vw, 100vw"
+        }
+        className={
+          image.contain
+            ? "object-contain p-6"
+            : "object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+        }
+      />
+    );
+
     return (
       <div
         className={`relative overflow-hidden border-b border-white/5 ${height} ${
           image.contain ? "bg-white" : "bg-zinc-950"
         }`}
       >
-        <Image
-          src={image.src}
-          alt={image.alt}
-          fill
-          sizes={
-            featured
-              ? "(min-width: 1152px) 750px, (min-width: 1024px) 66vw, 100vw"
-              : "(min-width: 1152px) 370px, (min-width: 1024px) 33vw, 100vw"
-          }
-          className={
-            image.contain
-              ? "object-contain p-6"
-              : "object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
-          }
-        />
+        {gallery ? (
+          <ProjectGallery title={project.title} images={gallery}>
+            {cover}
+          </ProjectGallery>
+        ) : (
+          cover
+        )}
       </div>
     );
   }

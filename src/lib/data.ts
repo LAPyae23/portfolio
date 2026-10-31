@@ -109,6 +109,12 @@ export const skills = [
 
 export type ProjectVisual = "api" | "cms" | "java";
 
+export type GalleryImage = {
+  src: string;
+  title: string;
+  caption: string;
+};
+
 export type Project = {
   slug: string;
   title: string;
@@ -118,6 +124,7 @@ export type Project = {
   live?: string;
   featured: boolean;
   image?: { src: string; alt: string; contain?: boolean };
+  gallery?: GalleryImage[];
   visual?: ProjectVisual;
 };
 
@@ -132,9 +139,71 @@ export const projects: Project[] = [
     live: "https://deli-app-eta.vercel.app",
     featured: true,
     image: {
-      src: "/projects/fooddash.webp",
-      alt: "FoodDash sign-in page with customer, restaurant, rider, and admin roles",
+      src: "/projects/fooddash/01-tracking.webp",
+      alt: "FoodDash live order tracking map with delivery progress",
     },
+    gallery: [
+      {
+        src: "/projects/fooddash/01-tracking.webp",
+        title: "Live order tracking",
+        caption: "Customers follow their order on a road-based map, with an arrival countdown and the assigned rider.",
+      },
+      {
+        src: "/projects/fooddash/02-cart.webp",
+        title: "Cart",
+        caption: "Saved delivery addresses, promo codes, and suggestions for items often bought together.",
+      },
+      {
+        src: "/projects/fooddash/03-order-slip.webp",
+        title: "Order slip",
+        caption: "A printable slip confirms each order with a full cost breakdown in Kyat.",
+      },
+      {
+        src: "/projects/fooddash/04-delivered.webp",
+        title: "Delivery feedback",
+        caption: "Customers rate their rider and leave a comment once the order arrives.",
+      },
+      {
+        src: "/projects/fooddash/05-restaurant-orders.webp",
+        title: "Restaurant order queue",
+        caption: "Restaurants set a prep time, then accept or reject incoming orders.",
+      },
+      {
+        src: "/projects/fooddash/06-restaurant-menu.webp",
+        title: "Menu management",
+        caption: "Owners manage items, prices, and stock levels, with out-of-stock items clearly flagged.",
+      },
+      {
+        src: "/projects/fooddash/07-rider-request.webp",
+        title: "Rider delivery request",
+        caption: "Riders see the pickup, drop-off, estimated pay, and full route before accepting a job.",
+      },
+      {
+        src: "/projects/fooddash/08-rider-delivery.webp",
+        title: "Active delivery",
+        caption: "A route map, quick contact options, and one-tap status updates during a trip.",
+      },
+      {
+        src: "/projects/fooddash/09-rider-earnings.webp",
+        title: "Rider earnings",
+        caption: "Riders track earnings, tips, and trips over time.",
+      },
+      {
+        src: "/projects/fooddash/10-admin-overview.webp",
+        title: "Admin overview",
+        caption: "Live platform KPIs, order volume charts, and a QR code that opens the customer app.",
+      },
+      {
+        src: "/projects/fooddash/11-service-zones.webp",
+        title: "Service zones",
+        caption: "Approved restaurants plotted by GPS show shop coverage across Yangon.",
+      },
+      {
+        src: "/projects/fooddash/12-vendors.webp",
+        title: "Vendor approvals",
+        caption: "Admins review new restaurant applications, check their stats, and approve or reject them.",
+      },
+    ],
   },
   {
     slug: "celestix-frontend",
