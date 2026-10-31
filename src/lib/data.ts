@@ -140,13 +140,14 @@ export const projects: Project[] = [
     slug: "celestix-frontend",
     title: "Celestix Booking UI",
     description:
-      "A movie ticket e-booking frontend with discovery, showtimes, seat booking, and food combos, plus an admin area for movies, theaters, and refunds. Built with Vite, Tailwind, and shadcn/ui.",
+      "A movie ticket e-booking frontend with discovery, showtimes, seat booking, and food combos, plus an admin area for movies, theaters, and refunds. Built with Vite, Tailwind, and shadcn/ui. The live demo runs on sample data.",
     tags: ["React", "TypeScript", "Vite", "Tailwind", "shadcn/ui"],
     href: "https://github.com/LAPyae23/MovieticketEbookingsystem_frontend",
+    live: "https://celestix-demo.vercel.app",
     featured: false,
     image: {
       src: "/projects/celestix.webp",
-      alt: "Celestix movie ticket logo",
+      alt: "Celestix home page with a featured sample film",
     },
   },
   {
@@ -167,14 +168,14 @@ export const projects: Project[] = [
     slug: "uit-intern",
     title: "UIT Intern Portal",
     description:
-      "An internship platform connecting students, companies, and administrators through role-based dashboards. Students get a multi-template resume builder and interview prep, with English and Myanmar translations throughout.",
+      "An internship platform connecting students, companies, and administrators through role-based dashboards. Students get a multi-template resume builder and interview prep, with English and Myanmar translations throughout. The live demo runs on sample data.",
     tags: ["React", "TypeScript", "Supabase", "i18next", "Vitest"],
     href: "https://github.com/LAPyae23/UIt-Intern_frontend",
+    live: "https://uit-intern-demo.vercel.app",
     featured: false,
     image: {
       src: "/projects/uit.webp",
-      alt: "UIT logo",
-      contain: true,
+      alt: "UIT Intern Portal student dashboard listing internships",
     },
   },
   {
