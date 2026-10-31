@@ -42,15 +42,17 @@ function ProjectCard({ project }: { project: Project }) {
           <h3 className="font-display text-xl text-zinc-50 sm:text-2xl">
             {project.title}
           </h3>
-          <a
-            href={project.href}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-zinc-300 transition-colors group-hover:border-pink-400/40 group-hover:text-neon"
-            aria-label={`Open ${project.title} on GitHub`}
-          >
-            <GithubIcon className="h-4 w-4" />
-          </a>
+          {project.href ? (
+            <a
+              href={project.href}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-zinc-300 transition-colors group-hover:border-pink-400/40 group-hover:text-neon"
+              aria-label={`Open ${project.title} on GitHub`}
+            >
+              <GithubIcon className="h-4 w-4" />
+            </a>
+          ) : null}
         </div>
         <p className="flex-1 text-sm leading-6 text-zinc-400">{project.description}</p>
         <div className="mt-5 flex flex-wrap gap-2">
@@ -75,15 +77,19 @@ function ProjectCard({ project }: { project: Project }) {
               <ArrowUpRight className="h-4 w-4" />
             </a>
           ) : null}
-          <a
-            href={project.href}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-1 text-sm text-neon"
-          >
-            View repository
-            <ArrowUpRight className="h-4 w-4" />
-          </a>
+          {project.href ? (
+            <a
+              href={project.href}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1 text-sm text-neon"
+            >
+              View repository
+              <ArrowUpRight className="h-4 w-4" />
+            </a>
+          ) : (
+            <span className="text-sm text-zinc-500">Private repository</span>
+          )}
         </div>
       </div>
     </article>

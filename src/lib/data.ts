@@ -114,7 +114,7 @@ export type Project = {
   title: string;
   description: string;
   tags: string[];
-  href: string;
+  href?: string;
   live?: string;
   featured: boolean;
   image?: { src: string; alt: string; contain?: boolean };
@@ -194,7 +194,6 @@ export const projects: Project[] = [
     description:
       "Spring Boot 3 theater management APIs: JWT security, JPA/MySQL, Cloudinary media, mail, Quartz jobs, and OpenAPI docs.",
     tags: ["Java 17", "Spring Boot", "MySQL", "JWT", "Docker"],
-    href: "https://github.com/LAPyae23/MovieticketEbookingsystem_backend",
     featured: false,
     visual: "api",
   },
