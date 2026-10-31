@@ -4,7 +4,7 @@ export const profile = {
   title: "Full-stack developer",
   headline: "I build sleek systems with a cinematic edge.",
   summary:
-    "Frontend-leaning full-stack developer shipping polished product UIs and Spring Boot APIs — from theater booking platforms to CMS workspaces.",
+    "Frontend-leaning full-stack developer shipping polished product UIs and APIs — from FoodDash, a multi-role food delivery platform, to warehouse and movie booking systems.",
   avatar: "https://avatars.githubusercontent.com/u/161600819?v=4",
   github: "https://github.com/LAPyae23",
   linkedin: "https://www.linkedin.com/in/khinlapyaehtun13",
@@ -20,20 +20,20 @@ export const navLinks = [
 ];
 
 export const typingPhrases = [
-  "React & TypeScript",
+  "Food delivery platforms",
+  "Next.js & TypeScript",
+  "Live order tracking",
+  "Warehouse tools",
   "Spring Boot APIs",
-  "Tailwind interfaces",
-  "Movie booking systems",
-  "CMS product UIs",
 ];
 
 export const about = {
   kicker: "About me",
   title: "A coding journey with neon precision.",
   paragraphs: [
-    "I am Khin La Pyae Htun — known on GitHub as LAPyae23. I opened that profile in 2024 and have been turning ideas into shipped software ever since: ticket platforms, content systems, and internship-grade product interfaces.",
-    "My strongest thread is Celestix, a movie ticket management system that spans a Java/Spring Boot API layer and a React + TypeScript booking UI. Around that, I have built a Turbo/Vite CMS workspace and a UIT internship frontend with i18n, Supabase, and a fully typed component kit.",
-    "I care about interfaces that feel inevitable — glass, motion, and a little neon — backed by APIs that are actually production-minded: JWT auth, JPA, MySQL, and clean module boundaries.",
+    "I am Khin La Pyae Htun — known on GitHub as LAPyae23. I opened that profile in 2024 and have been turning ideas into shipped software ever since: food delivery, warehouse tools, ticket platforms, and internship-grade product interfaces.",
+    "My strongest project is FoodDash, a food delivery platform for Yangon that connects customers, restaurants, riders, and admins on one Next.js and MongoDB codebase, with live order tracking and analytics across 10,000+ orders. Around that, I have worked on Invento, a bilingual warehouse app; Celestix, a movie ticket system with a Spring Boot API and a React booking UI; and a UIT internship portal.",
+    "I care about interfaces that feel inevitable — glass, motion, and a little neon — backed by APIs that are actually production-minded: role-based auth, clean data models, and clear module boundaries.",
   ],
   stats: [
     { value: "2024", label: "Started shipping" },
@@ -46,7 +46,7 @@ export const skills = [
   {
     name: "TypeScript",
     blurb:
-      "Primary language across cms-frontend, the Celestix booking UI, and the UIT intern app.",
+      "Primary language across FoodDash, the Celestix booking UI, and the UIT intern app.",
     span: "md:col-span-2 md:row-span-2",
     accent: true,
   },
@@ -71,8 +71,8 @@ export const skills = [
     span: "md:col-span-2",
   },
   {
-    name: "MySQL",
-    blurb: "Persistence for ticket and theater data.",
+    name: "MongoDB & MySQL",
+    blurb: "FoodDash orders and Celestix ticket data.",
     span: "md:col-span-1",
   },
   {
@@ -102,7 +102,7 @@ export const skills = [
   },
   {
     name: "Next.js",
-    blurb: "This portfolio — App Router, motion, polish.",
+    blurb: "FoodDash and this portfolio — App Router and APIs.",
     span: "md:col-span-1",
   },
 ];

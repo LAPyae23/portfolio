@@ -39,7 +39,7 @@ export function Skills() {
           <SectionHeading
             kicker="Tech stack"
             title="Languages from the LAPyae23 repos."
-            description="A bento of the tools that show up in Celestix, the CMS workspace, and the UIT intern frontend."
+            description="A bento of the tools that show up in FoodDash, Invento, Celestix, and the UIT intern portal."
           />
         </FadeIn>
 

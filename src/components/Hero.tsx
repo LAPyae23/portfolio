@@ -111,9 +111,9 @@ export function Hero() {
             <div className="space-y-4 font-mono text-sm text-zinc-300">
               <Line label="identity" value="Khin La Pyae Htun" />
               <Line label="alias" value="LAPyae23" />
-              <Line label="focus" value="React · Spring Boot" />
+              <Line label="focus" value="Next.js · React" />
               <Line label="signature" value="FoodDash delivery platform" />
-              <Line label="stack" value="TS / Java / Tailwind" />
+              <Line label="stack" value="TS / MongoDB / Tailwind" />
             </div>
             <div className="mt-8 rounded-2xl border border-pink-400/20 bg-pink-500/10 p-4">
               <p className="text-xs uppercase tracking-[0.22em] text-neon">
