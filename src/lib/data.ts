@@ -182,7 +182,7 @@ export const projects: Project[] = [
     slug: "cms-frontend",
     title: "CMS Frontend",
     description:
-      "A pnpm + Turbo CMS workspace with Vite federation, React Query, Zustand, and a shadcn-style UI kit for content operations.",
+      "Team project: a pnpm + Turbo CMS workspace with Vite federation, React Query, Zustand, and a shadcn-style UI kit for content operations.",
     tags: ["TypeScript", "Turbo", "Zustand", "React Query"],
     href: "https://github.com/LAPyae23/cms-frontend",
     featured: false,
@@ -201,7 +201,7 @@ export const projects: Project[] = [
     slug: "celestix",
     title: "Celestix",
     description:
-      "The original movie ticket management system — Java foundations for the Celestix product family.",
+      "Team project: the original movie ticket management system — Java foundations for the Celestix product family.",
     tags: ["Java"],
     href: "https://github.com/LAPyae23/celestix",
     featured: false,
