@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { ChevronLeft, ChevronRight, Expand, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, Expand, Play, X } from "lucide-react";
 import type { GalleryImage } from "@/lib/data";
 
 type ProjectGalleryProps = {
@@ -24,6 +24,8 @@ export function ProjectGallery({ title, images, url, children }: ProjectGalleryP
   const [direction, setDirection] = useState(1);
 
   const current = images[index];
+  const screenCount = images.filter((image) => !image.video).length;
+  const hasVideo = screenCount < images.length;
   const groups = [...new Set(images.map((image) => image.group))];
   const host = url?.replace(/^https?:\/\//, "");
   const slide = reduceMotion ? 0 : 48;
@@ -68,13 +70,17 @@ export function ProjectGallery({ title, images, url, children }: ProjectGalleryP
         type="button"
         onClick={open}
         className="group/cover relative block h-full w-full cursor-zoom-in overflow-hidden"
-        aria-label={`Open ${images.length} ${title} screenshots`}
+        aria-label={`Open ${title} ${hasVideo ? "video and " : ""}${screenCount} screenshots`}
       >
         {children}
         <span className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-70 transition-opacity duration-300 group-hover/cover:opacity-100" />
         <span className="absolute bottom-3 right-3 inline-flex items-center gap-2 rounded-full border border-pink-300/30 bg-black/70 px-3.5 py-2 text-xs font-medium text-white shadow-[0_0_24px_rgba(255,77,157,0.35)] backdrop-blur-md transition-all duration-300 group-hover/cover:-translate-y-0.5 group-hover/cover:border-pink-300/70">
-          <Expand className="h-3.5 w-3.5 text-neon" />
-          View {images.length} screens
+          {hasVideo ? (
+            <Play className="h-3.5 w-3.5 fill-current text-neon" />
+          ) : (
+            <Expand className="h-3.5 w-3.5 text-neon" />
+          )}
+          {hasVideo ? `Video + ${screenCount} screens` : `View ${screenCount} screens`}
         </span>
       </button>
 
@@ -163,7 +169,11 @@ export function ProjectGallery({ title, images, url, children }: ProjectGalleryP
                       </span>
                     ) : null}
                   </div>
-                  <div className="relative aspect-[2.06/1] overflow-hidden bg-white">
+                  <div
+                    className={`relative aspect-[2.06/1] overflow-hidden ${
+                      current.video ? "bg-black" : "bg-white"
+                    }`}
+                  >
                     <AnimatePresence initial={false} custom={direction}>
                       <motion.div
                         key={current.src}
@@ -178,7 +188,7 @@ export function ProjectGallery({ title, images, url, children }: ProjectGalleryP
                         animate="center"
                         exit="exit"
                         transition={{ duration: reduceMotion ? 0 : 0.28, ease: "easeOut" }}
-                        drag="x"
+                        drag={current.video ? false : "x"}
                         dragConstraints={{ left: 0, right: 0 }}
                         dragElastic={0.15}
                         onDragEnd={(_, info) => {
@@ -186,15 +196,29 @@ export function ProjectGallery({ title, images, url, children }: ProjectGalleryP
                           if (info.offset.x > SWIPE_DISTANCE) show(-1);
                         }}
                       >
-                        <Image
-                          src={current.src}
-                          alt={current.title}
-                          fill
-                          sizes="(min-width: 1152px) 1100px, 100vw"
-                          className="object-cover object-top"
-                          draggable={false}
-                          loading="eager"
-                        />
+                        {current.video ? (
+                          <video
+                            src={current.video}
+                            poster={current.src}
+                            aria-label={current.title}
+                            className="h-full w-full object-contain"
+                            controls
+                            autoPlay
+                            muted
+                            playsInline
+                            preload="metadata"
+                          />
+                        ) : (
+                          <Image
+                            src={current.src}
+                            alt={current.title}
+                            fill
+                            sizes="(min-width: 1152px) 1100px, 100vw"
+                            className="object-cover object-top"
+                            draggable={false}
+                            loading="eager"
+                          />
+                        )}
                       </motion.div>
                     </AnimatePresence>
                   </div>
@@ -248,6 +272,11 @@ export function ProjectGallery({ title, images, url, children }: ProjectGalleryP
                         sizes="80px"
                         className="object-cover object-top"
                       />
+                      {image.video ? (
+                        <span className="absolute inset-0 flex items-center justify-center bg-black/40">
+                          <Play className="h-4 w-4 fill-white text-white" />
+                        </span>
+                      ) : null}
                     </button>
                   ))}
                 </div>

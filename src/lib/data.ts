@@ -111,6 +111,7 @@ export type ProjectVisual = "api" | "cms" | "java";
 
 export type GalleryImage = {
   src: string;
+  video?: string;
   group: string;
   title: string;
   caption: string;
@@ -125,6 +126,7 @@ export type Project = {
   live?: string;
   featured: boolean;
   image?: { src: string; alt: string; contain?: boolean };
+  galleryHost?: string;
   gallery?: GalleryImage[];
   visual?: ProjectVisual;
 };
@@ -220,17 +222,87 @@ export const projects: Project[] = [
   },
   {
     slug: "celestix-frontend",
-    title: "Celestix Booking UI",
+    title: "Celestix Movie Booking",
     description:
-      "A movie ticket e-booking frontend with discovery, showtimes, seat booking, and food combos, plus an admin area for movies, theaters, and refunds. Built with Vite, Tailwind, and shadcn/ui. The live demo runs on sample data.",
-    tags: ["React", "TypeScript", "Vite", "Tailwind", "shadcn/ui"],
+      "A full-stack movie ticket system with a React frontend and a Java Spring Boot backend, covering seat booking, food orders, and admin tools for theaters and showtimes. The real system runs locally with its own database, so the video and screens show it on a local machine. The live demo uses sample data instead.",
+    tags: ["React", "TypeScript", "Java", "Spring Boot", "MySQL"],
     href: "https://github.com/LAPyae23/MovieticketEbookingsystem_frontend",
     live: "https://celestix-demo.vercel.app",
+    galleryHost: "localhost:5173",
     featured: false,
     image: {
-      src: "/projects/celestix.webp",
-      alt: "Celestix home page with a featured sample film",
+      src: "/projects/celestix/cover.webp",
+      alt: "Celestix home page running locally with a featured movie",
     },
+    gallery: [
+      {
+        src: "/projects/celestix/poster.webp",
+        video: "/projects/celestix/demo.mp4",
+        group: "Walkthrough",
+        title: "Full system walkthrough",
+        caption: "The frontend and Java backend running together on a local machine, from browsing and booking to the admin tools.",
+      },
+      {
+        src: "/projects/celestix/01-dashboard.webp",
+        group: "Admin",
+        title: "Admin dashboard",
+        caption: "Totals for users, cinemas, movies, admins, and reservations, read from the local database.",
+      },
+      {
+        src: "/projects/celestix/02-seat-pricing.webp",
+        group: "Admin",
+        title: "Seat pricing",
+        caption: "A color-coded seat map shows each price tier, and admins can update prices per theater.",
+      },
+      {
+        src: "/projects/celestix/03-theaters.webp",
+        group: "Admin",
+        title: "Theater management",
+        caption: "Manage theater locations, seat layouts, capacity, and pricing tiers in one place.",
+      },
+      {
+        src: "/projects/celestix/04-edit-theater.webp",
+        group: "Admin",
+        title: "Edit theater",
+        caption: "Update a theater's details, along with the rows and price for each seat tier.",
+      },
+      {
+        src: "/projects/celestix/05-showtimes.webp",
+        group: "Admin",
+        title: "Showtimes",
+        caption: "Schedule movies across theaters and track the seats still available.",
+      },
+      {
+        src: "/projects/celestix/06-bookings.webp",
+        group: "Admin",
+        title: "Bookings",
+        caption: "Review each booking's seats, amount, status, and payment. Customer details are blurred.",
+      },
+      {
+        src: "/projects/celestix/07-genres.webp",
+        group: "Admin",
+        title: "Movie genres",
+        caption: "Maintain the genres used to organize and filter movies.",
+      },
+      {
+        src: "/projects/celestix/08-services.webp",
+        group: "Customer",
+        title: "Services",
+        caption: "Customers can book tickets, order food and snacks, or open the support chat.",
+      },
+      {
+        src: "/projects/celestix/09-profile.webp",
+        group: "Customer",
+        title: "Customer profile",
+        caption: "Bookings, history, food orders, and account details in one profile.",
+      },
+      {
+        src: "/projects/celestix/10-support-chat.webp",
+        group: "Customer",
+        title: "Support chat",
+        caption: "A built-in chatbot helps customers with questions about Celestix.",
+      },
+    ],
   },
   {
     slug: "invento",

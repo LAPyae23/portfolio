@@ -133,7 +133,7 @@ function ProjectCover({ project }: { project: Project }) {
         }`}
       >
         {gallery ? (
-          <ProjectGallery title={project.title} images={gallery} url={project.live}>
+          <ProjectGallery title={project.title} images={gallery} url={project.galleryHost ?? project.live}>
             {cover}
           </ProjectGallery>
         ) : (
